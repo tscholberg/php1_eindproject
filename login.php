@@ -5,6 +5,6 @@
 <title>Login - IMDstagram</title>
 </head>
 <body>
-login
+Login
 </body>
 </html>
