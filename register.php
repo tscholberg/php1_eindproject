@@ -8,6 +8,38 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	
+	<div class="container">
+		<a href="" id="imd-logo">IMDstagram</a>
+			<form action='' method="POST">
+			  <fieldset>
+				<div id="legend">
+					<h1 class="legend">Sign up to see work and projects from IMD students</h1>
+				</div>
+
+				<button type="submit" class="btn btn-primary btn-block">Log in with Facebook</button>
+
+				<p>of</p>
+
+				<div class="form-group">
+					<input type="email" class="form-control" id="email" placeholder="Email">
+				</div>
+
+				<div class="form-group">
+					<input type="text" class="form-control" id="fullname" placeholder="Full name">
+				</div>
+
+				<div class="form-group">
+					<input type="text" class="form-control" id="username" placeholder="User name">
+				</div>
+
+				<div class="form-group">
+					<input type="password" class="form-control" id="password" placeholder="Password">
+				</div>
+
+				<button type="submit" class="btn btn-primary btn-block">Sign up</button>
+			  </fieldset>
+
+			</form>
+		</div>
 </body>
 </html>
