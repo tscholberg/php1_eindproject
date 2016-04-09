@@ -1,6 +1,7 @@
 body {
 	font-family: 'Raleway', sans-serif;
 }	
+/*-----REGISTRATION-----*/
 .container {
 	max-width:400px;
 }
@@ -37,4 +38,17 @@ a.policy {
 	color:#acacaa;
 	font-weight:700;
 }
+
+/* -----LOGIN----- */
+p.signup {
+	text-align:center;
+	color: #acacaa;
+	margin:1em 0;
+}
+a.signup-link {
+	text-decoration: none;
+	color:#acacaa;
+	font-weight:700;
+}
+
 	
