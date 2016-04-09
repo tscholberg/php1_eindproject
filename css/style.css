@@ -14,9 +14,27 @@ body {
 }
 h1.legend {
 	text-align:center;
+	font-size: 1.7em;
+	font-weight:700;
+	color: #acacaa;
+	margin-top:-.5em;
+	margin-bottom: 1em;
 }
 p.or {
 	text-align:center;
 	text-transform: uppercase;
+	color: #acacaa;
+	font-weight:700;
+	margin:1em 0;
+}
+p.agreement {
+	text-align:center;
+	color: #acacaa;
+	margin:1em 0;
+}
+a.policy {
+	text-decoration: none;
+	color:#acacaa;
+	font-weight:700;
 }
 	
