@@ -41,6 +41,10 @@
 			  </fieldset>
 
 			</form>
+			
+			<p class="agreement">By signing up, you agree to our <br>
+			<a href="https://help.instagram.com/155833707900388" class="policy">Terms and Privacy Policy.</a>
+			</p>
 		</div>
 </body>
 </html>
