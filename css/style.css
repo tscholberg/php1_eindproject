@@ -50,5 +50,25 @@ a.signup-link {
 	color:#acacaa;
 	font-weight:700;
 }
+/*-----CHANGE PROFILE-----*/
+h1.ch-profile-legend {
+	text-align:center;
+	font-size: 1.2em;
+	font-weight:700;
+	color: #acacaa;
+	margin-bottom: 1em;
+}
+.ch-profile-input {
+	margin-bottom:1em;
+}
+span.input-group-addon {
+	width:40px;
+}
+.input-group {
+	width:100%;
+}
+.save-changes {
+	margin-top:1.5em;
+}
 
 	
