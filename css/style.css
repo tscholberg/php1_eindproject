@@ -1,0 +1,54 @@
+body {
+	font-family: 'Raleway', sans-serif;
+}	
+/*-----REGISTRATION-----*/
+.container {
+	max-width:400px;
+}
+#imd-logo {
+	background-image: url(../images/imd-logo.png);
+	display:block;
+	width:180px;
+	height:180px;
+	text-indent:-9999px;
+	margin:0 auto;
+}
+h1.legend {
+	text-align:center;
+	font-size: 1.7em;
+	font-weight:700;
+	color: #acacaa;
+	margin-top:-.5em;
+	margin-bottom: 1em;
+}
+p.or {
+	text-align:center;
+	text-transform: uppercase;
+	color: #acacaa;
+	font-weight:700;
+	margin:1em 0;
+}
+p.agreement {
+	text-align:center;
+	color: #acacaa;
+	margin:1em 0;
+}
+a.policy {
+	text-decoration: none;
+	color:#acacaa;
+	font-weight:700;
+}
+
+/* -----LOGIN----- */
+p.signup {
+	text-align:center;
+	color: #acacaa;
+	margin:1em 0;
+}
+a.signup-link {
+	text-decoration: none;
+	color:#acacaa;
+	font-weight:700;
+}
+
+	
