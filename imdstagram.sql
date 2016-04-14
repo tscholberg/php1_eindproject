@@ -32,6 +32,10 @@ CREATE TABLE IF NOT EXISTS `languages` (
   UNIQUE KEY `langID` (`langID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `languages` (`langID`, `language`) VALUES
+('en', 'english'),
+('nl', 'nederlands');
+
 CREATE TABLE IF NOT EXISTS `posts` (
   `postID` int(11) NOT NULL AUTO_INCREMENT,
   `userID` int(11) NOT NULL,
