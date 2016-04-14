@@ -1,4 +1,37 @@
-<!doctype html>
+<?php 
+
+	if (!empty($_POST)) {
+		$salt = "gfdgdfgsfgqfdq";
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+
+		
+		$conn = new mysqli("localhost", "root", "", "imdstagramTEST");
+		if (!$conn->connect_errno) {
+			
+			$query = "SELECT * FROM users WHERE username = '".$conn->real_escape_string($username)."';";
+			$result = $conn->query($query);
+			
+			$row_hash = $result->fetch_array();
+			if (password_verify($password, $row_hash['password'])) 
+			{
+				echo "Welcome!";
+			}
+			else
+			{
+				echo "wrong information!";
+			}
+		}
+	}
+
+	/*
+
+	
+	
+	*/
+
+	
+ ?><!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -27,7 +60,7 @@
 			  </fieldset>
 			</form>
 	
-			<p class="signup">Don't have an account? 
+			<p class="signup">Don't have an account??
 				<a href="register.php" class="signup-link">Sign up</a>
 			</p>
 	</div>
