@@ -1,5 +1,5 @@
-<div class="bg-img">
-	<div class="container">
+<div class="bg-img login">
+	<div class="container login">
 		<a href="" id="imd-logo">IMDstagram</a>
 			<form action='' method="POST">
 			  <fieldset>
