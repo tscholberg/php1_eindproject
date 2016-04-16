@@ -29,6 +29,8 @@
 			include('register.php');
 		}elseif($gurl == 'change_profile'){
 			include('change_profile.php');
+		}else{
+			include('404.php');
 		}
 	}
 ?>
