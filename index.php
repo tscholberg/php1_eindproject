@@ -1,7 +1,9 @@
 <?php
+	require_once("includes/global.inc.php");
+	
 	session_start();
 	
-	$url = $_SERVER['HTTP_HOST'].'/php1_eindproject/';
+	$url = siteurl;
 	
 	if(isset($_GET['url'])){
 		$gurl = $_GET['url'];
@@ -12,10 +14,10 @@
 	if($gurl == 'login' || $gurl == 'register'){
 		openPage($gurl);
 	}else{
-		if(!isset($_SESSION['login'])){
+		if(isset($_SESSION['login'])){
 			openPage($gurl);
 		}else{
-			header('Location: http://'.$url.'login');
+			header('Location: '.siteurl.'/login');
 			exit();
 		}
 	}
