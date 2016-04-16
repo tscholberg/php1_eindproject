@@ -1,7 +1,7 @@
 body {
 	font-family: 'Raleway', sans-serif;
 }
-.bg-img {
+.bg-img.login {
 	position:absolute;
 	top:0;
 	left:0;
@@ -10,14 +10,30 @@ body {
 	background: url(../images/bg-login.jpg) center center no-repeat fixed;
 	background-size:cover;
 }
+.bg-img.registration {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	min-height:100%;
+	background: url(../images/bg-login.jpg) center center no-repeat fixed;
+	background-size:cover;
+}
 /*-----REGISTRATION-----*/
-.container {
+.container.login {
 	max-width:400px;
 	background-color:white;
 	padding:30px;
 	position: relative;
 	top: 50%;
   	transform: translateY(-50%);
+	border-radius: 10px;
+}
+.container.registration {
+	max-width:400px;
+	background-color:white;
+	padding:30px;
+	position: relative;
 	border-radius: 10px;
 }
 #imd-logo {
@@ -42,6 +58,9 @@ p.or {
 	color: #acacaa;
 	font-weight:700;
 	margin:1em 0;
+}
+select.form-control {
+	margin-bottom: 1em;
 }
 p.agreement {
 	text-align:center;
@@ -91,6 +110,7 @@ a.forgot-pw-link:hover{
 	color:#337ab7;
 }
 textarea:focus,
+select.form-control:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="datetime"]:focus,
