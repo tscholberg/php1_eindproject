@@ -1,54 +1,94 @@
-<div class="container">
+<div class="bg-img registration">
+   <div class="container registration">
     <a href="" id="imd-logo">IMDstagram</a>
-    <form action="{siteurl}/register" method="post">
+    <form action='' method="POST">
       <fieldset>
         <div id="legend">
-            <h1 class="legend">Sign up to see work and projects from IMD students</h1>
+            <h1 class="legend">Sign up to discover inspiration from IMD students</h1>
         </div>
 
         <button type="submit" class="btn btn-primary btn-block">Log in with Facebook</button>
 
         <p class="or">or</p>
-
-        <div class="form-group">
-            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First name">
-        </div>
+ 
+        <label class="register-lbl">First name</label>
+			<div class="input-group">
+					<span class="input-group-addon">
+			   			<i class="fa fa-user"></i>
+				   </span>
+				   <div class="form-group">
+						<input type="text" class="form-control input-lg" id="firstname" placeholder="First name">
+				   </div>
+			</div>
+       
+       <label class="register-lbl">Last name</label>
+			<div class="input-group">
+					<span class="input-group-addon">
+			   			<i class="fa fa-user"></i>
+				   </span>
+				   <div class="form-group">
+						<input type="text" class="form-control input-lg" id="lastname" placeholder="Last name">
+				   </div>
+			</div>
+       
+  			<div class="radio"><label class="radio-inline">
+        	 	<input type="radio" name="male" id="male" class="male" value="male">
+         	 	Male
+			</label>
+				
+		  	<label class="radio-inline">
+			  <input type="radio" name="female" id="female" value="female">
+			  Female
+       	  	</label>
+		  </div>
+       
+       		<label class="register-lbl">Birthday</label>
+			<div class="input-group">
+					<span class="input-group-addon">
+			   			<i class="fa fa-birthday-cake" aria-hidden="true"></i>
+				   </span>
+				   <div class="form-group">
+						<input type="text" class="form-control input-lg" id="datepicker">
+				   </div>
+			</div>
         
-        <div class="form-group">
-            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last name">
-        </div>
-        
-        <div class="radio">
-          <label><input type="radio" name="gender" id="male" value="male">Male</label>
-        </div>
-        
-        <div class="radio">
-          <label><input type="radio" name="gender" id="female" value="female">Female</label>
-        </div>
-        
-        <div class="form-group">
-            <label>Birthday <input type="text" class="form-control" name="birthday" id="datepicker"></label>
-        </div>
-        
-        <label>language</label>
-        <select name="languages">
+        <label>Language</label>
+        <select class="form-control" name="languages">
             <option value="" disabled selected>choose language</option>
             {foreach from=$languages key=k item=i}
                 <option value="{$i.id}">{$i.language}</option>
             {/foreach}
         </select>
-          
-        <div class="form-group">
-            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-        </div>
-
-        <div class="form-group">
-            <input type="text" class="form-control" id="username" name="username" placeholder="User name">
-        </div>
-
-        <div class="form-group">
-            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-        </div>
+         
+        <label class="register-lbl">Email</label>
+			<div class="input-group">
+				<span class="input-group-addon">
+			   		<i class="fa fa-envelope" aria-hidden="true"></i>
+				</span>
+       			<div class="form-group">
+        			<input type="email" class="form-control input-lg" id="email" placeholder="Email">
+        		</div>
+		  </div>
+        
+        <label class="register-lbl">User name</label>
+			<div class="input-group">
+				<span class="input-group-addon">
+			   		<i class="fa fa-user"></i>
+				</span>
+       			<div class="form-group">
+            		<input type="text" class="form-control input-lg" id="username" placeholder="User name">
+        		</div>
+		  </div>
+                
+        <label class="register-lbl">Password</label>
+			<div class="input-group">
+				<span class="input-group-addon">
+			   		<i class="fa fa-unlock-alt" aria-hidden="true"></i>
+				</span>
+       			<div class="form-group">
+       				<input type="password" class="form-control input-lg" id="password" placeholder="Password">
+        		</div>
+		  </div>
 
         <button type="submit" class="btn btn-primary btn-block">Sign up</button>
       </fieldset>
@@ -58,6 +98,7 @@
     <p class="agreement">By signing up, you agree to our <br>
     <a href="https://help.instagram.com/155833707900388" class="policy">Terms and Privacy Policy.</a>
     </p>
+</div>
 </div>
 
 <script>
