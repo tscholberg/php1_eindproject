@@ -10,7 +10,7 @@
 	$smarty->cache_dir = 'smarty/cache/';
 
 	//connectie opbouwen met de database; in select nooit array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'") als vierde argument meegeven
-	$db = new PDO('mysql:host=cms;dbname='.dbname, dbuser, dbpassw);
+	$db = new PDO('mysql:host='.dbhost.';dbname='.dbname, dbuser, dbpassw);
 
 	//producten ophalen
 	$sql = "SELECT  langID
@@ -35,23 +35,9 @@
 		$i++;
 	
 	}
-	
-	/*
-	$languages[0]['id'] = 'nl';
-	$languages[0]['language'] = 'nederlands';
-	
-	$languages[1]['id'] = 'en';
-	$languages[1]['language'] = 'english';
-	*/
-	
-	
+		
 	//database connectie sluiten
 	$db = NULL;
-	
-	
-	
-	
-	
 	
 	
 	$smarty->assign('filename', 'register.tpl');
