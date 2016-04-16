@@ -1,83 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>IMDstagram Registration</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link href='https://fonts.googleapis.com/css?family=Raleway:500,700' rel='stylesheet' type='text/css'>
-</head>
-<body>
-	<div class="container">
-		<a href="" id="imd-logo">IMDstagram</a>
-			<form action='' method="POST">
-			  <fieldset>
-				<div id="legend">
-					<h1 class="legend">Sign up to see work and projects from IMD students</h1>
-				</div>
+<?php
+	include("includes/db.inc.php");
+	
+	//smarty path settings
+	require('smarty/libs/Smarty.class.php');
+	$smarty = new Smarty;
+	$smarty->template_dir = 'smarty/templates/';
+	$smarty->compile_dir = 'smarty/templates_c/';
+	$smarty->config_dir = 'smarty/configs/';
+	$smarty->cache_dir = 'smarty/cache/';
 
-				<button type="submit" class="btn btn-primary btn-block">Log in with Facebook</button>
+	//connectie opbouwen met de database; in select nooit array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'") als vierde argument meegeven
+	$db = new PDO('mysql:host=cms;dbname='.dbname, dbuser, dbpassw);
 
-				<p class="or">or</p>
+	//producten ophalen
+	$sql = "SELECT  langID
+				, 	language
+			FROM 	languages";
+	
+	$query = $db->prepare($sql);
+	$query->execute();
+	/*\PDO::FETCH_ASSOC and \PDO::FETCH_NUM allow you to define fetching mode. \PDO::FETCH_ASSOC will return only field => value array, whilst \PDO::FETCH_NUM return array with numerical keys only and \PDO::FETCH_BOTH will return result like in the answer. */
+	//indien je niets meegeeft is het automatisch fetch_both
+	$result = $query->fetchAll(PDO::FETCH_ASSOC);
+	$aantalTalen = count($result);
 
-				<div class="form-group">
-					<input type="text" class="form-control" id="firstname" placeholder="First name">
-				</div>
-				
-				<div class="form-group">
-					<input type="text" class="form-control" id="lastname" placeholder="Last name">
-				</div>
-				
-				<div class="radio">
-				  <label><input type="radio" name="male" id="male" value="male">Male</label>
-				</div>
-				
-				<div class="radio">
-				  <label><input type="radio" name="female" id="female" value="female">Female</label>
-				</div>
-				
-				<div class="form-group">
-					<label>Birthday <input type="text" class="form-control" id="datepicker"></label>
-				</div>
-				
-				<label>language</label>
-				<select name="languages">
-					<option value="" disabled selected>choose language</option>
-					<option value="nl">nederlands</option>
-					<option value="en">english</option>
-				</select>
-				  
-				<div class="form-group">
-					<input type="email" class="form-control" id="email" placeholder="Email">
-				</div>
+	//door array gaan
+	$i = 0;
+	foreach($result as $row)
+	{
 
-				<div class="form-group">
-					<input type="text" class="form-control" id="username" placeholder="User name">
-				</div>
-
-				<div class="form-group">
-					<input type="password" class="form-control" id="password" placeholder="Password">
-				</div>
-
-				<button type="submit" class="btn btn-primary btn-block">Sign up</button>
-			  </fieldset>
-
-			</form>
-			
-			<p class="agreement">By signing up, you agree to our <br>
-			<a href="https://help.instagram.com/155833707900388" class="policy">Terms and Privacy Policy.</a>
-			</p>
-		</div>
+		$languages[$i]['id'] 		= $row['langID'];
+		$languages[$i]['language'] 	= $row['language'];
 		
-		<script>
-			$(function() {
-			$( "#datepicker" ).datepicker();
-		  });
-			</script>
-</body>
-</html>
+		$i++;
+	
+	}
+	
+	/*
+	$languages[0]['id'] = 'nl';
+	$languages[0]['language'] = 'nederlands';
+	
+	$languages[1]['id'] = 'en';
+	$languages[1]['language'] = 'english';
+	*/
+	
+	
+	//database connectie sluiten
+	$db = NULL;
+	
+	
+	
+	
+	
+	
+	
+	$smarty->assign('filename', 'register.tpl');
+	$smarty->assign('languages', $languages);
+
+	//template weergeven
+	$smarty->display('layout.tpl');
+?>
