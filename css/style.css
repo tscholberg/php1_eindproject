@@ -1,9 +1,24 @@
 body {
 	font-family: 'Raleway', sans-serif;
-}	
+}
+.bg-img {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background: url(../images/bg-login.jpg) center center no-repeat fixed;
+	background-size:cover;
+}
 /*-----REGISTRATION-----*/
 .container {
 	max-width:400px;
+	background-color:white;
+	padding:30px;
+	position: relative;
+	top: 50%;
+  	transform: translateY(-50%);
+	border-radius: 10px;
 }
 #imd-logo {
 	background-image: url(../images/imd-logo.png);
@@ -40,6 +55,27 @@ a.policy {
 }
 
 /* -----LOGIN----- */
+.input-group {
+	margin-bottom:10px;
+}
+.input-group .form-control:first-child {
+	border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+label.login-lbl {
+	margin-top:10px;
+}
+.btn-login {
+	margin-top:1.5em;
+}
+p.forgot-pw {
+	text-align: center;
+	margin:1em 0;
+}
+a.forgot-pw-link {
+	text-decoration: none;
+	color:#acacaa;
+}
 p.signup {
 	text-align:center;
 	color: #acacaa;
@@ -50,7 +86,8 @@ a.signup-link {
 	color:#acacaa;
 	font-weight:700;
 }
-a.signup-link:hover {
+a.signup-link:hover,
+a.forgot-pw-link:hover{
 	color:#337ab7;
 }
 textarea:focus,
@@ -72,12 +109,6 @@ input[type="color"]:focus,
 	border-color: #121212;
 	box-shadow: none;
 	outline: 0 none;
-}
-.input-group {
-	margin-bottom:10px;
-}
-label.login-lbl {
-	margin-top:10px;
 }
 /*-----CHANGE PROFILE-----*/
 h1.ch-profile-legend {
