@@ -1,6 +1,46 @@
 body {
 	font-family: 'Raleway', sans-serif;
 }
+#imd-logo {
+	background-image: url(../images/imd-logo.png);
+	display:block;
+	width:180px;
+	height:180px;
+	text-indent:-9999px;
+	margin:0 auto;
+}
+.input-group {
+	margin-bottom:10px;
+	width:100%;
+}
+.input-group .form-control:first-child {
+	border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+span.input-group-addon {
+	width:40px;
+}
+textarea:focus,
+select.form-control:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {   
+	border-color: #121212;
+	box-shadow: none;
+	outline: 0 none;
+}
 /*-----REGISTRATION-----*/
 .bg-img.registration {
 	position:absolute;
@@ -17,14 +57,6 @@ body {
 	padding:30px;
 	position: relative;
 	border-radius: 10px;
-}
-#imd-logo {
-	background-image: url(../images/imd-logo.png);
-	display:block;
-	width:180px;
-	height:180px;
-	text-indent:-9999px;
-	margin:0 auto;
 }
 h1.legend {
 	text-align:center;
@@ -74,13 +106,6 @@ a.policy {
   	transform: translateY(-50%);
 	border-radius: 10px;
 }
-.input-group {
-	margin-bottom:10px;
-}
-.input-group .form-control:first-child {
-	border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-}
 label.login-lbl {
 	margin-top:10px;
 }
@@ -108,27 +133,6 @@ a.signup-link {
 a.signup-link:hover,
 a.forgot-pw-link:hover{
 	color:#337ab7;
-}
-textarea:focus,
-select.form-control:focus,
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="time"]:focus,
-input[type="week"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="color"]:focus,
-.uneditable-input:focus {   
-	border-color: #121212;
-	box-shadow: none;
-	outline: 0 none;
 }
 /*-----CHANGE PROFILE-----*/
 .container.change-profile {
@@ -164,12 +168,6 @@ p.p-ch-profile-pic {
 }
 .ch-profile-input {
 	margin-bottom:1em;
-}
-span.input-group-addon {
-	width:40px;
-}
-.input-group {
-	width:100%;
 }
 .save-changes {
 	margin-top:1.5em;
