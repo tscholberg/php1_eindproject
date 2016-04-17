@@ -1,15 +1,7 @@
 body {
 	font-family: 'Raleway', sans-serif;
 }
-.bg-img.login {
-	position:absolute;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
-	background: url(../images/bg-login.jpg) center center no-repeat fixed;
-	background-size:cover;
-}
+/*-----REGISTRATION-----*/
 .bg-img.registration {
 	position:absolute;
 	top:0;
@@ -18,16 +10,6 @@ body {
 	min-height:100%;
 	background: url(../images/bg-login.jpg) center center no-repeat fixed;
 	background-size:cover;
-}
-/*-----REGISTRATION-----*/
-.container.login {
-	max-width:400px;
-	background-color:white;
-	padding:30px;
-	position: relative;
-	top: 50%;
-  	transform: translateY(-50%);
-	border-radius: 10px;
 }
 .container.registration {
 	max-width:400px;
@@ -74,6 +56,24 @@ a.policy {
 }
 
 /* -----LOGIN----- */
+.bg-img.login {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background: url(../images/bg-login.jpg) center center no-repeat fixed;
+	background-size:cover;
+}
+.container.login {
+	max-width:400px;
+	background-color:white;
+	padding:30px;
+	position: relative;
+	top: 50%;
+  	transform: translateY(-50%);
+	border-radius: 10px;
+}
 .input-group {
 	margin-bottom:10px;
 }
@@ -131,12 +131,36 @@ input[type="color"]:focus,
 	outline: 0 none;
 }
 /*-----CHANGE PROFILE-----*/
+.container.change-profile {
+width:400px;
+}
 h1.ch-profile-legend {
 	text-align:center;
 	font-size: 1.2em;
 	font-weight:700;
 	color: #acacaa;
 	margin-bottom: 1em;
+}
+.ch-profile-pic {
+	margin-bottom:1em;
+}
+img.ch-profile-pic {
+	width:150px;
+	height:150px;
+	cursor:pointer;
+	border-radius: 50%;
+	border: none;
+	float:left;
+}
+p.p-ch-profile-pic {
+	text-align:center;
+	font-weight:700;
+}
+.dropdown-profile-pic {
+	display:none;
+	margin-top:1.5em;
+	float:right;
+	max-width:200px;
 }
 .ch-profile-input {
 	margin-bottom:1em;
