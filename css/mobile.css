@@ -1,0 +1,9 @@
+/* ----- DROPDOWN MENU CHANGE PROFILE PICTURE ----- */
+@media(max-width:400px) {
+	.img-ch-profile-pic {
+		float:none;
+	}
+	.dropdown-profile-pic {
+		float:none;
+	}
+}
