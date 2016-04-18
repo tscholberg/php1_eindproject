@@ -1,4 +1,4 @@
-<div class="bg-img registration">
+<div class="bg registration">
    <div class="container registration">
     <a href="" id="imd-logo">IMDstagram</a>
     <form action='' method="POST">
@@ -31,13 +31,14 @@
 				   </div>
 			</div>
        
+       		<label class="register-lbl">Gender</label>
   			<div class="radio"><label class="radio-inline">
-        	 	<input type="radio" name="male" id="male" class="male" value="male">
+        	 	<input type="radio" name="gender" id="male" class="male" value="male">
          	 	Male
 			</label>
 				
 		  	<label class="radio-inline">
-			  <input type="radio" name="female" id="female" value="female">
+			  <input type="radio" name="gender" id="female" value="female">
 			  Female
        	  	</label>
 		  </div>
@@ -52,7 +53,7 @@
 				   </div>
 			</div>
         
-        <label>Language</label>
+       	<label class="register-lbl">Language</label>
         <select class="form-control" name="languages">
             <option value="" disabled selected>choose language</option>
             {foreach from=$languages key=k item=i}
