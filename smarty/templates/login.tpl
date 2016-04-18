@@ -1,4 +1,4 @@
-<div class="bg-img login">
+<div class="bg login">
 	<div class="container login">
 		<a href="" id="imd-logo">IMDstagram</a>
 			<form action='' method="POST">
@@ -32,4 +32,5 @@
 				<a href="{$siteurl}/register" class="signup-link">Sign up</a>
 			</p>
 	</div>
+</div>
 </div>
