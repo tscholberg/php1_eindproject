@@ -1,5 +1,6 @@
-body {
+body,html {
 	font-family: 'Raleway', sans-serif;
+	height:100%;
 }
 #imd-logo {
 	background-image: url(../images/imd-logo.png);
@@ -9,6 +10,16 @@ body {
 	text-indent:-9999px;
 	margin:0 auto;
 }
+.form,
+.form-control {
+	border:none;
+	box-shadow: none;
+}
+.form-control {
+	background-color: #f1f2f2;
+	box-shadow: none;
+	border:none;
+}
 .input-group {
 	margin-bottom:10px;
 	width:100%;
@@ -17,8 +28,15 @@ body {
 	border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
 }
+.input-group-addon{
+	background-color:#f1f2f2;
+	border:none;
+}
 span.input-group-addon {
 	width:40px;
+}
+.fa {
+	color:#33b5e6;
 }
 textarea:focus,
 select.form-control:focus,
@@ -37,9 +55,38 @@ input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus,
 .uneditable-input:focus {   
-	border-color: #121212;
+	border-color: #0091bf;
 	box-shadow: none;
 	outline: 0 none;
+}
+textarea:focus,
+select.form-control:hover,
+input[type="text"]:hover,
+input[type="password"]:hover,
+input[type="datetime"]:hover,
+input[type="datetime-local"]:hover,
+input[type="date"]:hover,
+input[type="month"]:hover,
+input[type="time"]:hover,
+input[type="week"]:hover,
+input[type="number"]:hover,
+input[type="email"]:hover,
+input[type="url"]:hover,
+input[type="search"]:hover,
+input[type="tel"]:hover,
+input[type="color"]:hover,
+.uneditable-input:hover {   
+	border:none;
+	box-shadow: none;
+	outline: 0 none;
+}
+.btn-primary {
+	background-color:#33b5e6;
+	border: 1px solid #22b4ea;
+}
+.btn-primary:hover {
+	background-color:#0099cb;
+	border:1px solid #0091bf;
 }
 /*-----REGISTRATION-----*/
 .bg-img.registration {
@@ -88,26 +135,23 @@ a.policy {
 }
 
 /* -----LOGIN----- */
-.bg-img.login {
-	position:absolute;
-	top:0;
-	left:0;
-	width:100%;
+.bg.login {
 	height:100%;
-	background: url(../images/bg-login.jpg) center center no-repeat fixed;
-	background-size:cover;
+	background-color:#33b4e6;
 }
 .container.login {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 	max-width:400px;
 	background-color:white;
 	padding:30px;
-	position: relative;
-	top: 50%;
-  	transform: translateY(-50%);
 	border-radius: 10px;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.6), 0 10px 10px 0 rgba(0, 0, 0, 0.3);
 }
 label.login-lbl {
 	margin-top:10px;
+	color:#acacaa;
 }
 .btn-login {
 	margin-top:1.5em;
@@ -132,7 +176,7 @@ a.signup-link {
 }
 a.signup-link:hover,
 a.forgot-pw-link:hover{
-	color:#337ab7;
+	color:#0099ca;
 }
 /*-----CHANGE PROFILE-----*/
 .container.change-profile {
