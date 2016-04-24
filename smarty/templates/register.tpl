@@ -71,13 +71,13 @@
         		</div>
 		  </div>
         
-        <label class="register-lbl">User name</label>
+        <label class="register-lbl">Username</label>
 			<div class="input-group">
 				<span class="input-group-addon">
 			   		<i class="fa fa-user"></i>
 				</span>
        			<div class="form-group">
-            		<input type="text" class="form-control input-lg" id="username" placeholder="User name">
+            		<input type="text" class="form-control input-lg" id="username" placeholder="Username">
         		</div>
 		  </div>
                 
