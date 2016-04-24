@@ -1,7 +1,7 @@
 <div class="bg registration">
    <div class="container registration">
     <a href="" id="imd-logo">IMDstagram</a>
-    <form action='' method="POST">
+    <form action='{$siteurl}/register' method="POST">
       <fieldset>
         <div id="legend">
             <h1 class="legend">Sign up to discover inspiration from IMD students</h1>
@@ -17,7 +17,7 @@
 			   			<i class="fa fa-user"></i>
 				   </span>
 				   <div class="form-group">
-						<input type="text" class="form-control input-lg" id="firstname" placeholder="First name">
+						<input type="text" class="form-control input-lg" id="firstname" name="firstname" placeholder="First name">
 				   </div>
 			</div>
        
@@ -27,7 +27,7 @@
 			   			<i class="fa fa-user"></i>
 				   </span>
 				   <div class="form-group">
-						<input type="text" class="form-control input-lg" id="lastname" placeholder="Last name">
+						<input type="text" class="form-control input-lg" id="lastname" name="lastname" placeholder="Last name">
 				   </div>
 			</div>
        
@@ -49,7 +49,7 @@
 			   			<i class="fa fa-birthday-cake" aria-hidden="true"></i>
 				   </span>
 				   <div class="form-group">
-						<input type="text" class="form-control input-lg" id="datepicker">
+						<input type="text" class="form-control input-lg" name="birthday" id="datepicker">
 				   </div>
 			</div>
         
@@ -67,7 +67,7 @@
 			   		<i class="fa fa-envelope" aria-hidden="true"></i>
 				</span>
        			<div class="form-group">
-        			<input type="email" class="form-control input-lg" id="email" placeholder="Email">
+        			<input type="email" class="form-control input-lg" id="email" name="email" placeholder="Email">
         		</div>
 		  </div>
         
@@ -77,7 +77,7 @@
 			   		<i class="fa fa-user"></i>
 				</span>
        			<div class="form-group">
-            		<input type="text" class="form-control input-lg" id="username" placeholder="Username">
+            		<input type="text" class="form-control input-lg" id="username" name="username" placeholder="Username">
         		</div>
 		  </div>
                 
@@ -87,11 +87,11 @@
 			   		<i class="fa fa-unlock-alt" aria-hidden="true"></i>
 				</span>
        			<div class="form-group">
-       				<input type="password" class="form-control input-lg" id="password" placeholder="Password">
+       				<input type="password" class="form-control input-lg" id="password" name="password" placeholder="Password">
         		</div>
 		  </div>
 
-        <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+        <button type="submit" name="btnRegister" class="btn btn-primary btn-block">Sign up</button>
       </fieldset>
 
     </form>
