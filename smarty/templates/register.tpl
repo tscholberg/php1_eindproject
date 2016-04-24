@@ -7,6 +7,10 @@
             <h1 class="legend">Sign up to discover inspiration from IMD students</h1>
         </div>
 
+        {if isset($notice)}
+            <div style="color: {$notice.color}; text-align: center; font-size: 16px;">{$notice.message}</div><br /><br />
+		{/if}
+        
         <button type="submit" class="btn btn-primary btn-block">Log in with Facebook</button>
 
         <p class="or">or</p>
@@ -17,7 +21,7 @@
 			   			<i class="fa fa-user"></i>
 				   </span>
 				   <div class="form-group">
-						<input type="text" class="form-control input-lg" id="firstname" name="firstname" placeholder="First name">
+						<input type="text" class="form-control input-lg" id="firstname" name="firstname" placeholder="First name" value="{$firstname}">
 				   </div>
 			</div>
        
@@ -27,7 +31,7 @@
 			   			<i class="fa fa-user"></i>
 				   </span>
 				   <div class="form-group">
-						<input type="text" class="form-control input-lg" id="lastname" name="lastname" placeholder="Last name">
+						<input type="text" class="form-control input-lg" id="lastname" name="lastname" placeholder="Last name" value="{$lastname}">
 				   </div>
 			</div>
        
@@ -49,7 +53,7 @@
 			   			<i class="fa fa-birthday-cake" aria-hidden="true"></i>
 				   </span>
 				   <div class="form-group">
-						<input type="text" class="form-control input-lg" name="birthday" id="datepicker">
+						<input type="text" class="form-control input-lg" name="birthday" id="datepicker" value="{$birthday}">
 				   </div>
 			</div>
         
@@ -67,7 +71,7 @@
 			   		<i class="fa fa-envelope" aria-hidden="true"></i>
 				</span>
        			<div class="form-group">
-        			<input type="email" class="form-control input-lg" id="email" name="email" placeholder="Email">
+        			<input type="email" class="form-control input-lg" id="email" name="email" placeholder="Email" value="{$email}">
         		</div>
 		  </div>
         
@@ -77,7 +81,7 @@
 			   		<i class="fa fa-user"></i>
 				</span>
        			<div class="form-group">
-            		<input type="text" class="form-control input-lg" id="username" name="username" placeholder="Username">
+            		<input type="text" class="form-control input-lg" id="username" name="username" placeholder="Username" value="{$username}">
         		</div>
 		  </div>
                 
