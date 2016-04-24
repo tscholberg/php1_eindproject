@@ -86,7 +86,6 @@
 			$p_password_encrypt = password_hash($p_password, PASSWORD_DEFAULT, $options);
 		
 			//gegevens naar database schrijven
-			//echo "p_password_encrypt: ".$p_password_encrypt." <br />";	
 			$db2 = new PDO('mysql:host='.dbhost.';dbname='.dbname, dbuser, dbpassw, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
 			$sql2 = "INSERT INTO users 	(		langID
 											,	firstname
