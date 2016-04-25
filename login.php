@@ -19,6 +19,7 @@
 				
 			// controle om te zien of alle velden ingevuld zijn
 			if (!empty($_POST['username']) && !empty($_POST['password'])) {
+				session_start();
 													
 			//connectie maken met db
 			$db = new PDO('mysql:host='.dbhost.';dbname='.dbname, dbuser, dbpassw);
@@ -35,6 +36,7 @@
 				$hash = $person['password'];
 
 					if( password_verify($password, $hash)) {
+						$_SESSION["userID"] = $person["id"];
 						header("Location:feed.php");
 					}
 					else {
