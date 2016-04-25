@@ -9,10 +9,44 @@
 	$smarty->compile_dir = 'smarty/templates_c/';
 	$smarty->config_dir = 'smarty/configs/';
 	$smarty->cache_dir = 'smarty/cache/';
-		
-	//database connectie sluiten
-	$db = NULL;
-	
+
+	//indien er niets is gepost lege velden meesturen; dit laten staan VOOR de isset post
+	$smarty->assign('username', "");
+	$smarty->assign('password', "");
+
+		if (isset($_POST['btnLogin'])) {
+			$error = array();
+				
+			// controle om te zien of alle velden ingevuld zijn
+			if (!empty($_POST['username']) && !empty($_POST['password'])) {
+													
+			//connectie maken met db
+			$db = new PDO('mysql:host='.dbhost.';dbname='.dbname, dbuser, dbpassw);
+			
+			$password = $_POST['password'];
+			$username = $_POST['username'];
+
+			$sql = "SELECT * FROM users WHERE username = '". $username . "'";
+			$query = $db->prepare($sql);
+			$query->execute();
+			$result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+				$person = $result[0];
+				$hash = $person['password'];
+
+					if( password_verify($password, $hash)) {
+						header("Location:feed.php");
+					}
+					else {
+						$p_email = "";
+						$p_user = "";
+					}
+			}
+			else {
+				echo "Make sure all the fields are filled in.";
+			}
+		}
+															
 	$smarty->assign('filename', 'login.tpl');
 	$smarty->assign('siteurl', siteurl);
 
