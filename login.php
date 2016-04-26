@@ -30,7 +30,7 @@ $notice = "";
 				$query->execute();
 				$result = $query->fetchAll(PDO::FETCH_ASSOC);
 
-				if(count($result>0)){
+				if(count($result)>0){
 					 $hash = $result[0]['password'];
 
 						if( password_verify($password, $hash)) {
