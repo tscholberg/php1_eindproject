@@ -14,41 +14,42 @@
 	$smarty->assign('username', "");
 	$smarty->assign('password', "");
 
-		if (isset($_POST['btnLogin'])) {
-			$error = array();
-				
+$notice = "";
+		if (isset($_POST['btnLogin'])) {	
 			// controle om te zien of alle velden ingevuld zijn
 			if (!empty($_POST['username']) && !empty($_POST['password'])) {
-				session_start();
-													
-			//connectie maken met db
-			$db = new PDO('mysql:host='.dbhost.';dbname='.dbname, dbuser, dbpassw);
-			
-			$password = $_POST['password'];
-			$username = $_POST['username'];
+								
+				//connectie maken met db
+				$db = new PDO('mysql:host='.dbhost.';dbname='.dbname, dbuser, dbpassw);
 
-			$sql = "SELECT * FROM users WHERE username = '". $username . "'";
-			$query = $db->prepare($sql);
-			$query->execute();
-			$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				$username = htmlspecialchars($_POST['username']);
+				$password = htmlspecialchars($_POST['password']);
 
-				$person = $result[0];
-				$hash = $person['password'];
+				$sql = "SELECT password FROM users WHERE username = '". $username . "' LIMIT 0, 1";
+				$query = $db->prepare($sql);
+				$query->execute();
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
 
-					if( password_verify($password, $hash)) {
-						$_SESSION["userID"] = $person["id"];
-						header("Location:feed.php");
+				if(count($result>0)){
+					 $hash = $result[0]['password'];
+
+						if( password_verify($password, $hash)) {
+							$_SESSION["userID"] = $person["id"];
+							header("Location:feed.php");
+						}else {
+							$notice['message'] = "combination of username of password is incorrect";
+							$notice['color'] = "red";
 					}
-					else {
-						$p_email = "";
-						$p_user = "";
-					}
-			}
-			else {
-				echo "Make sure all the fields are filled in.";
-			}
+					}else {
+						$notice['message'] = "combination of username and password not found";
+						$notice['color'] = 'red';
+				}
+				}else {
+					$notice['message'] = "Make sure all the fields are filled in.";
+					$notice['color'] = 'red';
+				}
 		}
-															
+	$smarty->assign('notice', $notice);													
 	$smarty->assign('filename', 'login.tpl');
 	$smarty->assign('siteurl', siteurl);
 
