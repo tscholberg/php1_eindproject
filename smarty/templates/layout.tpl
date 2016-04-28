@@ -5,9 +5,9 @@
 	<title>IMDstagram Registration</title>
 	<script src="{$siteurl}/js/libs/jquery-1.10.2.js"></script>
     <script src="{$siteurl}/js/libs/jquery-ui.js"></script>
-    <script src="{$siteurl}/js/libs/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="{$siteurl}/js/libs/bootstrap.min.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="{$siteurl}/css/libs/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="{$siteurl}/css/libs/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="{$siteurl}/css/libs/jquery-ui.css">
     <link rel="stylesheet" href="{$siteurl}/css/style.css">
     <link rel="stylesheet" href="{$siteurl}/css/mobile.css">
