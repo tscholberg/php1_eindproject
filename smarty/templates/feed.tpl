@@ -1,0 +1,1 @@
+<a class="btn btn-default" href="{$siteurl}/feed" role="button">Logout</a>

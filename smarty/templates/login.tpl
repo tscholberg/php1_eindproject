@@ -1,6 +1,10 @@
 <div class="bg login">
 	<div class="container login">
 		<a href="" id="imd-logo">IMDstagram</a>
+		
+          {if isset($notice) && ($notice != "")}
+            <div style="color: {$notice.color}; text-align: center; font-size: 16px;">{$notice.message}</div><br />				<br />
+		  {/if}
 			<form action='' method="POST">
 			  <fieldset>
 
@@ -10,7 +14,7 @@
 						<i class="fa fa-user"></i>
 				   </span>
 				   <div class="form-group">
-						<input type="text" class="form-control input-lg" id="username" placeholder="User name">
+						<input type="text" class="form-control input-lg" id="username" name="username" placeholder="User name">
 				   </div>
 				</div>
 
@@ -19,10 +23,10 @@
 					<span class="input-group-addon">
 						<i class="fa fa-unlock-alt"></i>
 					</span>
-					<input type="password" class="form-control input-lg" id="password" placeholder="Current password">
+					<input type="password" class="form-control input-lg" id="password" name="password" placeholder="Current password">
 				 </div>
 
-				<button type="submit" class="btn btn-primary btn-block btn-login">Log in</button>
+				<button type="submit" class="btn btn-primary btn-block btn-login" name="btnLogin">Log in</button>
 			  </fieldset>
 			</form>
 			
