@@ -37,12 +37,12 @@
        
        		<label class="register-lbl">Gender</label>
   			<div class="radio"><label class="radio-inline">
-        	 	<input type="radio" name="gender" id="male" class="male" value="male">
+        	 	<input type="radio" name="gender" id="male" class="male" value="m">
          	 	Male
 			</label>
 				
 		  	<label class="radio-inline">
-			  <input type="radio" name="gender" id="female" value="female">
+			  <input type="radio" name="gender" id="female" value="f">
 			  Female
        	  	</label>
 		  </div>
