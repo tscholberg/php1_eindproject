@@ -114,7 +114,8 @@
         $( "#datepicker" ).datepicker({
             changeMonth: true,
 			changeYear: true,
-			yearRange : range
+			yearRange : range,
+			dateFormat: "dd/mm/yy"
 		});
     });
 </script>
