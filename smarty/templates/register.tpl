@@ -109,13 +109,13 @@
 <script>
 	var dateToday = new Date();
 	var range = (dateToday.getFullYear() - 130) + ":" + (dateToday.getFullYear() - 13);
-
     $(function() {
         $( "#datepicker" ).datepicker({
             changeMonth: true,
 			changeYear: true,
 			yearRange : range,
-			dateFormat: "dd/mm/yy"
+			dateFormat: "dd/mm/yy",
+          	defaultDate: "01/01/" + (dateToday.getFullYear() - 13)
 		});
     });
 </script>
