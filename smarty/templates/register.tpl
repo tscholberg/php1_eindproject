@@ -107,10 +107,14 @@
 </div>
 
 <script>
+	var dateToday = new Date();
+	var range = (dateToday.getFullYear() - 130) + ":" + (dateToday.getFullYear() - 13);
+
     $(function() {
         $( "#datepicker" ).datepicker({
             changeMonth: true,
-			changeYear: true
+			changeYear: true,
+			yearRange : range
 		});
     });
 </script>
