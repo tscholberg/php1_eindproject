@@ -104,7 +104,7 @@
 											,	'".$p_firstname."'
 											,	'".$p_lastname."'
 											,	'".$p_gender."'
-											,	'".substr($p_birthday, 6, 4).'-'.substr($p_birthday, 0, 2).'-'.substr($p_birthday, 3, 2)."'
+											,	'".substr($p_birthday, 6, 4).'-'.substr($p_birthday, 3, 2).'-'.substr($p_birthday, 0, 2)."'
 											,	'".$p_email."'
 											,	'".$p_username."'
 											,	'".$p_password_encrypt."'
