@@ -11,7 +11,7 @@
 		$gurl = 'feed';
 	}
 	
-	if($gurl == 'login' || $gurl == 'register'){
+	if($gurl == 'login' || $gurl == 'logout' || $gurl == 'register'){
 		openPage($gurl);
 	}else{
 		if(isset($_SESSION['login'])){
@@ -25,6 +25,8 @@
 	function openPage($gurl){
 		if($gurl == 'login'){
 			include('login.php');
+		}elseif($gurl == 'logout'){
+			include('logout.php');
 		}elseif($gurl == 'register'){
 			include('register.php');
 		}elseif($gurl == 'change_profile'){
