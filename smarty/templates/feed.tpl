@@ -1,4 +1,4 @@
-<a class="btn btn-default" href="{$siteurl}/feed" role="button">Logout</a>
+<a class="btn btn-default" href="{$siteurl}/logout" role="button">Logout</a>
 <br /><br />
 
 {foreach from=$afb key=k item=v}
