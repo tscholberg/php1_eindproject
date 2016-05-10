@@ -29,8 +29,8 @@
 			include('register.php');
 		}elseif($gurl == 'change_profile'){
 			include('change_profile.php');
-		}elseif(gurl == 'feed') {
-		include('feed.php');
+		}elseif($gurl == 'feed') {
+			include('feed.php');
 		}else{
 			include('404.php');
 		}
