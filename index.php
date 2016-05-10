@@ -8,7 +8,7 @@
 	if(isset($_GET['url'])){
 		$gurl = $_GET['url'];
 	}else{
-		$gurl = 'home';
+		$gurl = 'feed';
 	}
 	
 	if($gurl == 'login' || $gurl == 'register'){
