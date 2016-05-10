@@ -1,20 +1,14 @@
 <?php
 	include("includes/db.inc.php");
 
-	//smarty path settings
-	require('smarty/libs/Smarty.class.php');
-	$smarty = new Smarty;
-	$smarty->template_dir = 'smarty/templates/';
-	$smarty->compile_dir = 'smarty/templates_c/';
-	$smarty->config_dir = 'smarty/configs/';
-	$smarty->cache_dir = 'smarty/cache/';
+	$t = new templateparser;
 	
 	//indien er niets is gepost lege velden meesturen; dit laten staan VOOR de isset post
-	$smarty->assign('firstname', "");
-	$smarty->assign('lastname', "");
-	$smarty->assign('birthday', "");
-	$smarty->assign('email', "");
-	$smarty->assign('username', "");
+	$t->assign('firstname', "");
+	$t->assign('lastname', "");
+	$t->assign('birthday', "");
+	$t->assign('email', "");
+	$t->assign('username', "");
 
 	if(isset($_POST['btnRegister'])){
 		$error = array();
@@ -86,7 +80,7 @@
 			$p_password_encrypt = password_hash($p_password, PASSWORD_DEFAULT, $options);
 		
 			//gegevens naar database schrijven
-			$db2 = new PDO('mysql:host='.dbhost.';dbname='.dbname, dbuser, dbpassw, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+			$db2 = new database;
 			$sql2 = "INSERT INTO users 	(		langID
 											,	firstname
 											,	lastname
@@ -115,8 +109,9 @@
 										);
 									";
 			
-			$query2 = $db2->prepare($sql2);
-			$status = $query2->execute();
+			$query2 = $db2->run($sql2);
+			$status = $query2->fetch();
+			$db2->close();
 
 			if($status){
 				$notice['message'] = "Your account has been created!";
@@ -130,29 +125,26 @@
 			$notice['color'] = "red";
 			
 			//geposte gegevens terugsturen
-			$smarty->assign('firstname', $p_firstname);
-			$smarty->assign('lastname', $p_lastname);
-			$smarty->assign('birthday', $p_birthday);
-			$smarty->assign('email', $p_email);
-			$smarty->assign('username', $p_username);
+			$t->assign('firstname', $p_firstname);
+			$t->assign('lastname', $p_lastname);
+			$t->assign('birthday', $p_birthday);
+			$t->assign('email', $p_email);
+			$t->assign('username', $p_username);
 		}
-		$smarty->assign('notice', $notice);
+		$t->assign('notice', $notice);
 	}
 
-	//connectie opbouwen met de database; in select nooit array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'") als vierde argument meegeven
-	$db = new PDO('mysql:host='.dbhost.';dbname='.dbname, dbuser, dbpassw);
+	$db = new database;
 
 	//producten ophalen
 	$sql = "SELECT  langID
 				, 	language
 			FROM 	languages";
 	
-	$query = $db->prepare($sql);
-	$query->execute();
-	/*\PDO::FETCH_ASSOC and \PDO::FETCH_NUM allow you to define fetching mode. \PDO::FETCH_ASSOC will return only field => value array, whilst \PDO::FETCH_NUM return array with numerical keys only and \PDO::FETCH_BOTH will return result like in the answer. */
-	//indien je niets meegeeft is het automatisch fetch_both
-	$result = $query->fetchAll(PDO::FETCH_ASSOC);
+	$query = $db->run($sql);
+	$result = $db->fetch();
 	$aantalTalen = count($result);
+	$db->close();
 
 	//door array gaan
 	$i = 0;
@@ -165,15 +157,11 @@
 		$i++;
 	
 	}
-		
-	//database connectie sluiten
-	$db = NULL;
 	
-	
-	$smarty->assign('filename', 'register.tpl');
-	$smarty->assign('siteurl', siteurl);
-	$smarty->assign('languages', $languages);
+	$t->assign('filename', 'register.tpl');
+	$t->assign('siteurl', siteurl);
+	$t->assign('languages', $languages);
 
 	//template weergeven
-	$smarty->display('layout.tpl');
+	$t->display('layout.tpl');
 ?>

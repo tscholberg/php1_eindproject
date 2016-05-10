@@ -2,57 +2,50 @@
 	include("includes/db.inc.php");
 	require_once("includes/global.inc.php");
 
-	//smarty path settings
-	require('smarty/libs/Smarty.class.php');
-	$smarty = new Smarty;
-	$smarty->template_dir = 'smarty/templates/';
-	$smarty->compile_dir = 'smarty/templates_c/';
-	$smarty->config_dir = 'smarty/configs/';
-	$smarty->cache_dir = 'smarty/cache/';
+	$t = new templateparser;
 
 	//indien er niets is gepost lege velden meesturen; dit laten staan VOOR de isset post
-	$smarty->assign('username', "");
-	$smarty->assign('password', "");
+	$t->assign('username', "");
+	$t->assign('password', "");
 
-$notice = "";
-		if (isset($_POST['btnLogin'])) {	
-			// controle om te zien of alle velden ingevuld zijn
-			if (!empty($_POST['username']) && !empty($_POST['password'])) {
-								
-				//connectie maken met db
-				$db = new PDO('mysql:host='.dbhost.';dbname='.dbname, dbuser, dbpassw);
+	$notice = "";
+	if (isset($_POST['btnLogin'])) {	
+		// controle om te zien of alle velden ingevuld zijn
+		if (!empty($_POST['username']) && !empty($_POST['password'])) {
+							
+			$db = new database;
 
-				$username = htmlspecialchars($_POST['username']);
-				$password = htmlspecialchars($_POST['password']);
+			$username = htmlspecialchars($_POST['username']);
+			$password = htmlspecialchars($_POST['password']);
 
-				$sql = "SELECT password FROM users WHERE username = '". $username . "' LIMIT 0, 1";
-				$query = $db->prepare($sql);
-				$query->execute();
-				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+			$sql = "SELECT password FROM users WHERE username = '". $username . "' LIMIT 0, 1";
+			$query = $db->run($sql);
+			$result = $db->fetch();
 
-				if(count($result)>0){
-					 $hash = $result[0]['password'];
+			if(count($result)>0){
+				 $hash = $result[0]['password'];
 
-						if( password_verify($password, $hash)) {
-							$_SESSION["userID"] = $username;
-							header("Location:feed.php");
-						}else {
-							$notice['message'] = "combination of username of password is incorrect";
-							$notice['color'] = "red";
-					}
+					if( password_verify($password, $hash)) {
+						$_SESSION["userID"] = $username;
+						header("Location:feed.php");
 					}else {
-						$notice['message'] = "combination of username and password not found";
-						$notice['color'] = 'red';
+						$notice['message'] = "combination of username of password is incorrect";
+						$notice['color'] = "red";
 				}
 				}else {
-					$notice['message'] = "Make sure all the fields are filled in.";
+					$notice['message'] = "combination of username and password not found";
 					$notice['color'] = 'red';
-				}
-		}
-	$smarty->assign('notice', $notice);													
-	$smarty->assign('filename', 'login.tpl');
-	$smarty->assign('siteurl', siteurl);
+			}
+			}else {
+				$notice['message'] = "Make sure all the fields are filled in.";
+				$notice['color'] = 'red';
+			}
+			$db->close();
+	}
+	$t->assign('notice', $notice);													
+	$t->assign('filename', 'login.tpl');
+	$t->assign('siteurl', siteurl);
 
 	//template weergeven
-	$smarty->display('layout.tpl');
+	$t->display('layout.tpl');
 ?>
