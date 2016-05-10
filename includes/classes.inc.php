@@ -26,12 +26,12 @@
 	class templateparser{
 		public function __construct(){
 			//smarty path settings
-			require("../smarty/libs/Smarty.class.php");
+			require("smarty/libs/Smarty.class.php");
 			$this->smarty = new Smarty;
-			$this->smarty->template_dir = "../smarty/templates/";
-			$this->smarty->compile_dir = "../smarty/templates_c/";
-			$this->smarty->config_dir = "../smarty/configs/";
-			$this->smarty->cache_dir = "../smarty/cache/";
+			$this->smarty->template_dir = "smarty/templates/";
+			$this->smarty->compile_dir = "smarty/templates_c/";
+			$this->smarty->config_dir = "smarty/configs/";
+			$this->smarty->cache_dir = "smarty/cache/";
 		}
 		public function assign($var, $value){
 			$this->smarty->assign($var, $value);
