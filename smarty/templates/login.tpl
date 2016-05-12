@@ -3,7 +3,7 @@
 		<a href="" id="imd-logo">IMDstagram</a>
 		
           {if isset($notice) && ($notice != "")}
-            <div style="color: {$notice.color}; text-align: center; font-size: 16px;">{$notice.message}</div><br />				<br />
+            <div style="color: {$notice.color}; text-align: center; font-size: 16px;">{$notice.message}</div><br />
 		  {/if}
 			<form action='' method="POST">
 			  <fieldset>
