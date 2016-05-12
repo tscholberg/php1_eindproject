@@ -26,7 +26,7 @@
 				 $hash = $result[0]['password'];
 
 				if( password_verify($password, $hash)) {
-					$_SESSION["userID"] = $username;
+					$_SESSION["login"] = $username;
 					header("Location:feed.php");
 				}else{
 					$notice['message'] = "combination of username of password is incorrect";
