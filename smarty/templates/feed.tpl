@@ -1,7 +1,7 @@
 <a class="btn btn-default" href="{$siteurl}/logout" role="button">Logout</a>
 <br /><br />
 
-<form action="{$siteurl}/feed.php" method="post">
+<form action="{$siteurl}/feed" method="post">
     <input type="text" name="search" />
     <input type="submit" name="btnZoeken" value="search" />
 </form>
