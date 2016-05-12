@@ -10,8 +10,10 @@
 	$db = new database;
 
 	//producten ophalen
-	$sql = "SELECT  picture
-			FROM 	posts";
+	$sql = "SELECT  	description, picture
+			FROM 		posts
+			ORDER BY	uploaddate DESC
+			LIMIT 0, 20";
 	
 	$query = $db->run($sql);
 	$result = $db->fetch();
