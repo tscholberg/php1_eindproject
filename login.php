@@ -27,7 +27,7 @@
 
 				if( password_verify($password, $hash)) {
 					$_SESSION["login"] = $username;
-					header("Location:feed.php");
+					header("Location: ".siteurl."/feed");
 				}else{
 					$notice['message'] = "combination of username of password is incorrect";
 					$notice['color'] = "red";
