@@ -4,9 +4,10 @@ body,html {
 }
 #imd-logo {
 	background-image: url(../images/imd-logo.png);
+	background-repeat:no-repeat;
+	background-position: center;
 	display:block;
-	width:180px;
-	height:180px;
+	min-height:20vh;
 	text-indent:-9999px;
 	margin:0 auto;
 }
