@@ -10,7 +10,6 @@
     	 <input type="text" class="form-control description" id="description" placeholder="Description">
  		 </div>
  		 
- 		 
  	<button type="submit" name="btnUploadPic" class="btn btn-primary btn-block">Upload</button>
 	</form>
 	</div>
