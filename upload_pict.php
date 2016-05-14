@@ -27,37 +27,45 @@
 		}
 	}
 	//function to store img in db with new name
-	if(!empty($_FILES["uploadedimg"]["name"])) {
-		$filename = $_FILES["uploadedimg"]["name"];
-		$tmpname = $_FILES["uploadedimg"]["tmpname"];
-		$imgtype = $_FILES["uploadedimg"]["type"];
-		$ext = getImageType($imgtype);
-		$imagename = date("d-m-Y") . "-" . time() . $ext;
-		$targetpath = "images/" . $imagename;
+	if(!isset($_POST['btnUploadPic'])) {
 
-		//write post in db
-		//move_uploaded_file() a php inbuilt function to upload img or file to db. Required: file name and target source destination
-		if (move_uploaded_file($temp_name, $targetpath)) {
-			$db = new database;
-			$sql = "INSERT into POSTS ( USERID,
-										DESCRIPTION,
-										PICTURE,
-										UPLOADDATE,
-										CREATEDON,
-										CREATEDBY,
-										LASTUPDATEON,
-										LASTUPDATEBY
- 								   )
-							     VALUES ( '" . $p_description . "',
-									   	  '" . $targetpath . "',
-									      '" . date("Y-m-d") . "'
-									    );
-			";
-			$query = $db->run($sql);
-			$status = $query->fetch();
-			$db->close();
-		} else {
-			exit("error while uploading image on server");
+		if(!empty($_POST['description'])){
+			$p_description = htmlspecialchars($_POST['description']);
+		}else{
+			echo "description cannot be empty";
+		}
+		if (!empty($_FILES["uploadedimg"]["name"])) {
+			$filename = $_FILES["uploadedimg"]["name"];
+			$tmpname = $_FILES["uploadedimg"]["tmpname"];
+			$imgtype = $_FILES["uploadedimg"]["type"];
+			$ext = getImageType($imgtype);
+			$imagename = date("d-m-Y") . "-" . time() . $ext;
+			$targetpath = "images/" . $imagename;
+
+			//write post in db
+			//move_uploaded_file() a php inbuilt function to upload img or file to db. Required: file name and target source destination
+			if (move_uploaded_file($temp_name, $targetpath)) {
+				$db = new database;
+				$sql = "INSERT into POSTS ( USERID,
+											DESCRIPTION,
+											PICTURE,
+											UPLOADDATE,
+											CREATEDON,
+											CREATEDBY,
+											LASTUPDATEON,
+											LASTUPDATEBY
+									   )
+									 VALUES ( '" . $p_description . "',
+											  '" . $targetpath . "',
+											  '" . date("Y-m-d") . "'
+											);
+				";
+				$query = $db->run($sql);
+				$status = $query->fetch();
+				$db->close();
+			} else {
+				exit("error while uploading image on server");
+			}
 		}
 	}
 	//template weergeven
