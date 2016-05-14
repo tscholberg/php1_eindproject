@@ -242,6 +242,10 @@ p.p-ch-profile-pic {
 label.upload-pic-lbl {
 	margin-top:10px;
 }
+img.imagePreview{
+	display:block;
+	margin: 0 auto;
+}
 .hide {
 	display:none;
 }
