@@ -34,7 +34,7 @@
 		}elseif($gurl == 'feed') {
 			include('feed.php');
 		}elseif($gurl == 'upload') {
-			include('upload_pict.php.php');
+			include('upload_pict.php');
 		}else{
 			include('404.php');
 		}
