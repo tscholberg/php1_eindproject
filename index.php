@@ -33,6 +33,8 @@
 			include('change_profile.php');
 		}elseif($gurl == 'feed') {
 			include('feed.php');
+		}elseif($gurl == 'upload') {
+			include('upload_pict.php.php');
 		}else{
 			include('404.php');
 		}
