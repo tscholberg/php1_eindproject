@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>IMDstagram Registration</title>
-	<script src="{$siteurl}/js/libs/jquery-1.10.2.js"></script>
+    <script src="{$siteurl}/js/libs/jquery-1.11.2.min.js"></script>
     <script src="{$siteurl}/js/libs/jquery-ui.js"></script>
     <script src="{$siteurl}/js/libs/bootstrap.min.js" crossorigin="anonymous"></script>
 
