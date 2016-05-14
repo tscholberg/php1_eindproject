@@ -47,5 +47,5 @@
 			</fieldset>
 		</form>
 	</div>
-	
-<script src="./../../../../php1_eindproject/js/jquery.js"></script>
+
+ <script src="{$siteurl}/js/jquery.js"></script>
