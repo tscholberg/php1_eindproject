@@ -1,9 +1,8 @@
 <?php
 	include("includes/db.inc.php");
-	require_once("includes/global.inc.php");
 
 	$t = new templateparser;
-												
+
 	$t->assign('filename', 'upload_pict.tpl');
 	$t->assign('siteurl', siteurl);
 
@@ -39,14 +38,14 @@
 			$tmpname = $_FILES["uploadedimg"]["tmpname"];
 			$imgtype = $_FILES["uploadedimg"]["type"];
 			$ext = getImageType($imgtype);
-			$imagename = date("d-m-Y") . "-" . time() . $ext;
-			$targetpath = "images/" . $imagename;
+			$imgname = date("d-m-Y") . "-" . time() . $ext;
+			$targetpath = "images/" . $imgname;
 
 			//write post in db
 			//move_uploaded_file() a php inbuilt function to upload img or file to db. Required: file name and target source destination
 			if (move_uploaded_file($temp_name, $targetpath)) {
 				$db = new database;
-				$sql = "INSERT into POSTS ( USERID,
+				$sql = "INSERT into posts ( USERID,
 											DESCRIPTION,
 											PICTURE,
 											UPLOADDATE,
@@ -64,7 +63,7 @@
 				$status = $query->fetch();
 				$db->close();
 			} else {
-				exit("error while uploading image on server");
+				echo "error while uploading image on server";
 			}
 		}
 	}
