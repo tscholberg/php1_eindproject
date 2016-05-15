@@ -64,6 +64,8 @@
 			echo "Not all fields were filled in";
 		}
 	}
+	//array weergeven
+	print_r($_FILES);
 	//template weergeven
 	$t->display('layout.tpl');
 ?>
