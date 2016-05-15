@@ -1,5 +1,9 @@
 <div class="bg upload-pict">
    <div class="container upload-pict">
+	   {if isset($notice) && ($notice != "")}
+		   <div style="color: {$notice.color}; text-align: center; font-size: 16px;">{$notice.message}</div><br />
+	   {/if}
+	   <h1 class="legend">Upload a new image</h1>
 	   <form action="{$siteurl}/upload" method="POST" enctype="multipart/form-data">
 			<input type="file" name="imageUpload" id="imageUpload" class="hide"/>
 			   <label for="imageUpload" class="btn btn-default btn-block">Select file</label><br/>
