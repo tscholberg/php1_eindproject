@@ -6,65 +6,62 @@
 	$t->assign('filename', 'upload_pict.tpl');
 	$t->assign('siteurl', siteurl);
 
-	//function that returns the image extension
-    function getImageType($imgtype)
-	{
-		if(empty($imgtype))
-			return false;
-		switch($imgtype)
-		{
-			case 'image/bmp':
-				return '.bmp';
-			case 'image/gif':
-				return '.gif';
-			case 'image/jpeg':
-				return '.jpg';
-			case 'image/png':
-				return '.png';
-			default:
-				return false;
-		}
-	}
+	//indien er niets is gepost lege velden meesturen; dit laten staan VOOR de isset post
+	$t->assign('imageUpload', "");
+	$t->assign('description', "");
+
 	//function to store img in db with new name
 	if(!isset($_POST['btnUploadPic'])) {
-
-		if(!empty($_POST['description'])){
-			$p_description = htmlspecialchars($_POST['description']);
-		}else{
-			echo "description cannot be empty";
+		//function that returns the image extension
+		function getImageExtension($imgtype)
+		{
+			if (empty($imgtype))
+				return false;
+			switch ($imgtype) {
+				case 'image/bmp':
+					return '.bmp';
+				case 'image/gif':
+					return '.gif';
+				case 'image/jpeg':
+					return '.jpg';
+				case 'image/png':
+					return '.png';
+				default:
+					return false;
+			}
 		}
-		if (!empty($_FILES["uploadedimg"]["name"])) {
-			$filename = $_FILES["uploadedimg"]["name"];
-			$tmpname = $_FILES["uploadedimg"]["tmpname"];
-			$imgtype = $_FILES["uploadedimg"]["type"];
-			$ext = getImageType($imgtype);
-			$imgname = date("d-m-Y") . "-" . time() . $ext;
-			$targetpath = "images/" . $imgname;
+
+		if (!empty($_POST['description']) && !empty($_FILES["imageUpload"]["name"])) {
+			$p_description = htmlspecialchars($_POST['description']);
+			$p_filename = $_FILES["imageUpload"]["name"];
+			$p_tmpname = $_FILES["imageUpload"]["tmpname"];
+			$p_imgtype = $_FILES["imageUpload"]["type"];
+			$ext = getImageExtension($imgtype);
+			$p_imgname = date("d-m-Y")."-".time().$ext;
+			$targetpath = "images/" . $p_imgname;
 
 			//write post in db
 			//move_uploaded_file() a php inbuilt function to upload img or file to db. Required: file name and target source destination
-			if (move_uploaded_file($temp_name, $targetpath)) {
+			if (move_uploaded_file($p_tmpname, $targetpath)) {
+
 				$db = new database;
-				$sql = "INSERT into posts ( USERID,
-											DESCRIPTION,
-											PICTURE,
-											UPLOADDATE,
-											CREATEDON,
-											CREATEDBY,
-											LASTUPDATEON,
-											LASTUPDATEBY
+				$sql = "INSERT INTO posts ( description,
+											picture,
+											uploaddate
 									   )
 									 VALUES ( '" . $p_description . "',
 											  '" . $targetpath . "',
-											  '" . date("Y-m-d") . "'
+											  NOW()
 											);
 				";
 				$query = $db->run($sql);
-				$status = $query->fetch();
+				$result = $query->fetch();
 				$db->close();
 			} else {
 				echo "error while uploading image on server";
 			}
+		} else {
+			echo "Not all fields were filled in";
 		}
 	}
 	//template weergeven
