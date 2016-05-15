@@ -11,6 +11,9 @@
 	$t->assign('imageUpload', "");
 	$t->assign('description', "");
 
+	//empty before posting
+	$notice = "";
+
 	//set path where uploaded img will be stored
 	$targetpath = 'images/' ;
 	//array for valid file types
@@ -37,8 +40,10 @@
 					return '.bmp';
 				case 'image/gif':
 					return '.gif';
-				case 'image/jpeg':
+				case 'image/jpg':
 					return '.jpg';
+				case 'image/jpeg':
+					return '.jpeg';
 				case 'image/png':
 					return '.png';
 				default:
@@ -84,13 +89,14 @@
 					$db->close();
 				}
 			} else {
-				echo "Make sure you upload an image";
+				$notice['message'] = "file type not supported. Make sure you upload an image.";
+				$notice['color'] = "red";
 			}
 		}else {
-			echo "not all fields are filled in";
+			$notice['message'] = "not all fields are filled in.";
+			$notice['color'] = "red";
 		}
-	} else {
-			echo "error while uploading image on server";
+		$t->assign('notice', $notice);
 	}
 	//template weergeven
 	$t->display('layout.tpl');
