@@ -11,7 +11,18 @@
 	$t->assign('imageUpload', "");
 	$t->assign('description', "");
 
+	//set path where uploaded img will be stored
 	$targetpath = 'images/' ;
+
+	//db connection for userID, username current session
+	$db2= new database();
+	$sql2= "SELECT userID,username FROM users WHERE username = '".$_SESSION['login']."'";
+	$db2->run($sql2);
+	$result2 = $db2->fetch();
+	$db2->close();
+	$p_userID = $result2[0]['userID'];
+	$p_username = $result2[0]['username'];
+
 	//function to store img in db with new name
 	if(isset($_POST['btnUploadPic'])) {
 		//function that returns the image extension
@@ -48,17 +59,28 @@
 			if($p_imgsize < 500000) {
 				move_uploaded_file($p_tmpname, $targetpath);
 				$db = new database;
-				$sql = "INSERT INTO posts ( description,
+				$sql = "INSERT INTO posts ( userID,
+											description,
 											picture,
-											uploaddate
+											uploaddate,
+											createdon,
+											createdby,
+											lastupdatedon,
+											lastupdatedby
 									   )
-									 VALUES ( '" . $p_description . "',
+									 VALUES ( '" . $p_userID . "',
+									 		  '" . $p_description . "',
 											  '" . $targetpath . "',
-											  NOW()
+											  NOW(),
+											  NOW(),
+											  '" .$p_username ."',
+											  NOW(),
+											  '" .$p_username . "'
 											);
 				";
 				$db->run($sql);
 				$result = $db->fetch();
+				$db->close();
 			} else {
 				echo "error while uploading image on server";
 			}
