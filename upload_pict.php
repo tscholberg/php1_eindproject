@@ -13,6 +13,8 @@
 
 	//set path where uploaded img will be stored
 	$targetpath = 'images/' ;
+	//array for valid file types
+	$validtype = array("image/jpg", "image/jpeg", "image/bmp", "image/gif", "image/png");
 
 	//db connection for userID, username current session
 	$db2= new database();
@@ -43,23 +45,22 @@
 					return false;
 			}
 		}
-
 		if (!empty($_POST['description']) && !empty($_FILES["imageUpload"]["name"])) {
-			$p_description = htmlspecialchars($_POST['description']);
-			$p_filename = $_FILES["imageUpload"]["name"];
-			$p_tmpname = $_FILES["imageUpload"]["tmp_name"];
-			$p_imgtype = $_FILES["imageUpload"]["type"];
-			$p_imgsize = $_FILES["imageUpload"]["size"];
-			$ext = getImageExtension($p_imgtype);
-			$p_imgname = date("d-m-Y") . "-" . time() . $ext;
-			$targetpath = 'images/' . $p_imgname;
+			if (in_array($_FILES['imageUpload']['type'], $validtype)) {
+				$p_description = htmlspecialchars($_POST['description']);
+				$p_filename = $_FILES["imageUpload"]["name"];
+				$p_tmpname = $_FILES["imageUpload"]["tmp_name"];
+				$p_imgtype = $_FILES["imageUpload"]["type"];
+				$p_imgsize = $_FILES["imageUpload"]["size"];
+				$ext = getImageExtension($p_imgtype);
+				$p_imgname = $p_userID . "-" . date("UdmY") . strtolower($ext); //string to lowercase: sometimes extensions are in uppercase
+				$targetpath = 'images/' . $p_imgname;
 
-			//write post in db
-			//move_uploaded_file() a php inbuilt function to upload img or file to db. Required: file name and target source destination
-			if($p_imgsize < 500000) {
-				move_uploaded_file($p_tmpname, $targetpath);
-				$db = new database;
-				$sql = "INSERT INTO posts ( userID,
+				//write post in db
+				//move_uploaded_file() a php inbuilt function to upload img or file to db. Required: file name and target source destination
+				if (move_uploaded_file($p_tmpname, $targetpath)) {
+					$db = new database;
+					$sql = "INSERT INTO posts ( userID,
 											description,
 											picture,
 											uploaddate,
@@ -73,20 +74,23 @@
 											  '" . $targetpath . "',
 											  NOW(),
 											  NOW(),
-											  '" .$p_username ."',
+											  '" . $p_username . "',
 											  NOW(),
-											  '" .$p_username . "'
+											  '" . $p_username . "'
 											);
 				";
-				$db->run($sql);
-				$result = $db->fetch();
-				$db->close();
+					$db->run($sql);
+					$result = $db->fetch();
+					$db->close();
+				}
 			} else {
-				echo "error while uploading image on server";
+				echo "Make sure you upload an image";
 			}
-		} else {
-			echo "Not all fields were filled in";
+		}else {
+			echo "not all fields are filled in";
 		}
+	} else {
+			echo "error while uploading image on server";
 	}
 	//template weergeven
 	$t->display('layout.tpl');
