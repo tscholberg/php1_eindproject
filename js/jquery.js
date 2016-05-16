@@ -10,8 +10,8 @@ $(document).ready(function () {
 				reader.onload = function (e) {
 					$('#imagePreview').show();
 					$('#imagePreview').attr('src', e.target.result);
-				}
-			};
+				};
+			}
 			reader.readAsDataURL(input.files[0]);
 		}
 	});
@@ -27,3 +27,19 @@ $(document).ready(function () {
 		})
 	});
 });
+
+function likepost(el, postid){
+	 $.ajax ({
+				 type: "POST",
+				 url: "likepost.php",
+				 data: "postid="+postid,
+				 success: function(data){
+				 	
+					if(data == "like"){
+						 $(el).find("i").addClass("hart-like");
+					}else if(data == "nolike"){
+						 $(el).find("i").removeClass("hart-like");
+					}
+				 }
+			  });
+}
