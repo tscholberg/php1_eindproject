@@ -8,7 +8,7 @@
 		}
 		public function run($sql){
 			$this->query = $this->conn->prepare($sql);
-			$this->query->execute();
+			return $this->query->execute();
 		}
 		public function fetch(){
 			return $this->query->fetchAll(PDO::FETCH_ASSOC);
