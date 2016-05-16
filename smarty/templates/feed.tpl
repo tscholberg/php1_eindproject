@@ -28,9 +28,15 @@
             {foreach from=$afb key=k item=v}
                 <div class="each-post">
                     <img src="{$afb[$k]['picture']}" alt="{$afb[$k]['picture']}" class="img-feed"/><br />
-                    <div class="description-feed">{$descr[$k]['description']}
+                    <div class="description-feed">{$afb[$k]['description']}
                         <div class="comment-like">
-                           <button type="button" class="btn btn-default btn-like"><i class="fa fa-heart fa-2x nolike"></i></button>
+                           <button type="button" class="btn btn-default btn-like" onClick="likepost(this, {$afb[$k]['postid']})">
+                           {if $afb[$k]['like'] == 1 }
+                           		<i class="fa fa-heart fa-2x nolike hart-like"></i>
+                           {else}
+                           		<i class="fa fa-heart fa-2x nolike"></i>
+                           {/if}
+                           </button>
                             <form class="form-inline place-comment">
                             <div class="form-group">
                                 <input type="text" class="form-control comment" placeholder="Place a comment">
