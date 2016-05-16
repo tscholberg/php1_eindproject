@@ -31,6 +31,13 @@
                     <div class="description-feed">{$descr[$k]['description']}
                         <div class="comment-like">
                            <button type="" class="btn btn-default btn-like"><i class="fa fa-heart fa-2x nolike"></i></button>
+                            <form class="form-inline place-comment">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="comment" placeholder="Place a comment">
+                            </div>
+                            <button type="submit" class="btn btn-default">Send</button>
+                            </form>
+                            <div class="clearfix"></div>
                         </div>
                     </div>
                 </div>

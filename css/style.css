@@ -275,6 +275,9 @@ form.form-inline.search-bar {
 	border: 1px solid #dbdbdb;
 	margin-top:40px;
 }
+.each-post:last-child{
+	margin-bottom:30px;
+}
 .img-feed {
 	max-width: 400px;
 	height: auto
@@ -287,8 +290,13 @@ form.form-inline.search-bar {
 i.fa.fa-heart.fa-2x.nolike {
 	color: #d3d3d3;
 }
+.comment-like {
+	margin-top:12px;
+	border-top:1px solid #dbdbdb;
+}
 .btn-default.btn-like{
 	padding-top:20px;
+	float:left;
 	color: transparent;
 	background-color: transparent;
 	border-color: transparent;
@@ -297,6 +305,13 @@ i.fa.fa-heart.fa-2x.nolike {
 	color: transparent;
 	background-color: transparent;
 	border-color: transparent;
+}
+.form-inline.place-comment {
+	float:left;
+	margin-top:19px;
+}
+.clearfix {
+	clear:both;
 }
 
 
