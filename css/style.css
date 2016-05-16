@@ -249,6 +249,59 @@ img.imagePreview{
 .hide {
 	display:none;
 }
+/*-----FEED-----*/
+.container-fluid.header-feed {
+	background-color: #fff;
+	height:70px;
+	padding-top:15px;
+	border-bottom: 1px solid #dbdbdb;
+}
+form.form-inline.search-bar {
+	width:100%;
+	margin-left:23%;
+	margin-right:23%;
+}
+.btn-search {
+	margin-left:10px;
+}
+.container-fluid.feed{
+	background-color: #fafafa;
+}
+.row.feed {
+	max-width: 400px;
+	margin: 0 auto;
+}
+.each-post {
+	border: 1px solid #dbdbdb;
+	margin-top:40px;
+}
+.img-feed {
+	max-width: 400px;
+	height: auto
+}
+.description-feed {
+	background-color:#fff;
+	height:auto;
+	padding: 20px;
+}
+i.fa.fa-heart.fa-2x.nolike {
+	color: #d3d3d3;
+}
+.btn-default.btn-like{
+	padding-top:20px;
+	color: transparent;
+	background-color: transparent;
+	border-color: transparent;
+}
+.btn-default.btn-like:hover {
+	color: transparent;
+	background-color: transparent;
+	border-color: transparent;
+}
+
+
+
+
 
 
 	
