@@ -37,10 +37,12 @@
                             </div>
                             <button type="submit" class="btn btn-default">Send</button>
                             </form>
-                            <div class="clearfix"></div>
                         </div>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             {/foreach}
     </div>
 </div>
+
+<script src="{$siteurl}/js/jquery.js"></script>
