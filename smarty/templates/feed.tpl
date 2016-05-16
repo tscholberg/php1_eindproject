@@ -13,8 +13,8 @@
                     </div>
                     <button type="submit" class="btn btn-default btn-search" name="btnZoeken">Search</button>
                 </div>
-                </div>
              </form>
+        </div>
 
         <div class="col-md-3">
             <a class="btn btn-default" href="{$siteurl}/logout" role="button">Logout</a>
@@ -30,10 +30,10 @@
                     <img src="{$afb[$k]['picture']}" alt="{$afb[$k]['picture']}" class="img-feed"/><br />
                     <div class="description-feed">{$descr[$k]['description']}
                         <div class="comment-like">
-                           <button type="" class="btn btn-default btn-like"><i class="fa fa-heart fa-2x nolike"></i></button>
+                           <button type="button" class="btn btn-default btn-like"><i class="fa fa-heart fa-2x nolike"></i></button>
                             <form class="form-inline place-comment">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="comment" placeholder="Place a comment">
+                                <input type="text" class="form-control comment" placeholder="Place a comment">
                             </div>
                             <button type="submit" class="btn btn-default">Send</button>
                             </form>

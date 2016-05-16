@@ -5,7 +5,7 @@
           {if isset($notice) && ($notice != "")}
             <div style="color: {$notice.color}; text-align: center; font-size: 16px;">{$notice.message}</div><br />
 		  {/if}
-			<form action='' method="POST">
+			<form action='{$siteurl}/login' method="post">
 			  <fieldset>
 
 				<label class="login-lbl">User name</label>
@@ -14,7 +14,7 @@
 						<i class="fa fa-user"></i>
 				   </span>
 				   <div class="form-group">
-						<input type="text" class="form-control input-lg" id="username" name="username" placeholder="User name">
+						<input type="text" class="form-control input-lg" id="username" name="username" placeholder="Enter your username" title="Enter your username">
 				   </div>
 				</div>
 
@@ -23,7 +23,7 @@
 					<span class="input-group-addon">
 						<i class="fa fa-unlock-alt"></i>
 					</span>
-					<input type="password" class="form-control input-lg" id="password" name="password" placeholder="Current password">
+					<input type="password" class="form-control input-lg" id="password" name="password" placeholder="Enter your password" title="Enter your password">
 				 </div>
 
 				<button type="submit" class="btn btn-primary btn-block btn-login" name="btnLogin">Log in</button>

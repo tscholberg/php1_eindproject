@@ -6,11 +6,11 @@
 				</div>
 				 
 				 <div class="ch-profile-pic">
-				 		<img alt="Change profile picture" class="ch-profile-pic" id="ch-profile-pic" src="./../../../../php1_eindproject/images/blank-user.jpg">
-				 	<div class="dropdown-profile-pic" id="dropdown-profile-pic">
+				 		<img alt="Change profile picture" class="ch-profile-pic" id="ch-profile-pic" src="{$siteurl}/images/blank-user.jpg">
+						<div class="dropdown-profile-pic" id="dropdown-profile-pic">
 				 		<p class="p-ch-profile-pic">Change profile picture</p>
-				 		<button class="btn btn-default btn-block" href="#">Remove current picture</button>
-				 		<button class="btn btn-default btn-block" href="#">Upload new picture</button>
+				 		<button class="btn btn-default btn-block" onclick="">Remove current picture</button>
+				 		<button class="btn btn-default btn-block" onclick="">Upload new picture</button>
 				 	</div>
 				 </div>
 
@@ -39,11 +39,10 @@
 				 	<span class="input-group-addon">
 				 		<i class="fa fa-unlock-alt"></i>
 					</span>
-					<input type="password" class="form-control input-lg" id="password" placeholder="New password">
+					<input type="password" class="form-control input-lg" id="password2" placeholder="New password">
 				 </div>
 				 
 				 <button type="submit" class="btn btn-primary btn-block save-changes">Save your changes</button>
-			</div>
 			</fieldset>
 		</form>
 	</div>
