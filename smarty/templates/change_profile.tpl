@@ -1,4 +1,4 @@
- <div class="container change-profile">
+<div class="container change-profile">
 		 <form>
 			 <fieldset>
 				 <div id="legend">
