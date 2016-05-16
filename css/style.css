@@ -313,6 +313,9 @@ i.fa.fa-heart.fa-2x.nolike {
 .clearfix {
 	clear:both;
 }
+.hart-like{
+	color: red !important;
+}
 
 
 
