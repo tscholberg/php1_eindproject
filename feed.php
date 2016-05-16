@@ -62,6 +62,7 @@
 	$db->close();
 
 	$t->assign('afb', $result);
+	$t->assign('descr', $result);
 
 	//template weergeven
 	$t->display('layout.tpl');
