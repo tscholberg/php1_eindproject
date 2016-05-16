@@ -4,14 +4,12 @@
 				 <div id="legend">
 					<h1 class="ch-profile-legend">Change your profile</h1>
 				</div>
-				 
+
 				 <div class="ch-profile-pic">
-				 		<img alt="Change profile picture" class="ch-profile-pic" id="ch-profile-pic" src="{$siteurl}/images/blank-user.jpg">
-						<div class="dropdown-profile-pic" id="dropdown-profile-pic">
-				 		<p class="p-ch-profile-pic">Change profile picture</p>
-				 		<button class="btn btn-default btn-block" onclick="">Remove current picture</button>
-				 		<button class="btn btn-default btn-block" onclick="">Upload new picture</button>
-				 	</div>
+					 <a href="#">
+						 <img alt="Change profile picture" class="ch-profile-pic" id="ch-profile-pic" src="{$siteurl}/images/blank-user.jpg">
+					 </a>
+					 <button class="btn-delete" onclick="deleteUserPict()">x</button>
 				 </div>
 
 				 <div class="input-group ch-profile-input">
@@ -43,6 +41,7 @@
 				 </div>
 				 
 				 <button type="submit" class="btn btn-primary btn-block save-changes">Save your changes</button>
+
 			</fieldset>
 		</form>
 	</div>
