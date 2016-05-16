@@ -1,9 +1,4 @@
 $(document).ready(function () {
-	$(".ch-profile-pic").on("click", function (e) {
-		$("#dropdown-profile-pic").toggle();
-		return false;
-		e.preventDefault;
-	});
 
 	$('#imagePreview').hide();
 	//found on: http://jsfiddle.net/hEpEL/
@@ -19,5 +14,16 @@ $(document).ready(function () {
 			};
 			reader.readAsDataURL(input.files[0]);
 		}
+	});
+
+	$(".btn-delete").click(function() {
+		$.ajax
+		({
+			type: "POST",
+			url: "deluserpict.php",
+			success: function(data){
+				alert(data);
+			}
+		})
 	});
 });
